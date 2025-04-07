@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/bel-codes-bytes.github.io/static/css/main.766a6a20.css",
+    "main.js": "/bel-codes-bytes.github.io/static/js/main.587c83c1.js",
+    "static/js/453.84708ec2.chunk.js": "/bel-codes-bytes.github.io/static/js/453.84708ec2.chunk.js",
+    "static/media/logo.svg": "/bel-codes-bytes.github.io/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/bel-codes-bytes.github.io/index.html",
+    "main.766a6a20.css.map": "/bel-codes-bytes.github.io/static/css/main.766a6a20.css.map",
+    "main.587c83c1.js.map": "/bel-codes-bytes.github.io/static/js/main.587c83c1.js.map",
+    "453.84708ec2.chunk.js.map": "/bel-codes-bytes.github.io/static/js/453.84708ec2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.766a6a20.css",
+    "static/js/main.587c83c1.js"
+  ]
+}
