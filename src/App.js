@@ -3,11 +3,11 @@ import "./App.css";
 import { Welcome } from "./Welcome";
 import NavbarComponent from "./Navbar";
 import BlogHome from "./Blog/BlogHome.jsx";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <NavbarComponent />
         <Routes>
@@ -15,7 +15,7 @@ function App() {
           <Route path="/blog" element={<BlogHome />}></Route>
         </Routes>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
