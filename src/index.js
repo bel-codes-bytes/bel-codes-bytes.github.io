@@ -5,7 +5,13 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 // Importing the Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import {
+  HashRouter,
+  Routes,
+  Route,
+  Link,
+  LinkContainer,
+} from "react-router-dom";
 import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));

@@ -1,8 +1,9 @@
 const articles = [
   {
-    id: 1,
-    name: "First Blog Post",
-    date: "04/05/2025",
+    id: 0,
+    name: "Linux Setup Journey",
+    date: "03/05/2025",
+    filePath: "/blog/entries/linux-setup-journey.html",
   },
 ];
 export default articles;

@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2025-04-08 Tue 18:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Linux Setup Journey</title>
+<meta name="author" content="bel" />
+<meta name="generator" content="Org Mode" />
+<style type="text/css">
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Linux Setup Journey</h1>
+<div id="outline-container-org86fa1da" class="outline-2">
+<h2 id="org86fa1da">Why Linux?</h2>
+<div class="outline-text-2" id="text-org86fa1da">
+</div>
+<div id="outline-container-orgdc834a9" class="outline-3">
+<h3 id="orgdc834a9">Why did I want to make the switch to Linux?</h3>
+<div class="outline-text-3" id="text-orgdc834a9">
+<p>
+I&rsquo;ve been interested in Linux for the past year for a variety of reasons.. Total customization, open source, unix based, community driven, and being an overall useful tool for a developer. As someone who has only developed on Windows, I&rsquo;ve never developed on a unix-based system and wanted to understand why a developer may prefer a unix based system. I dipped my toes into developing with Linux on WSL, which was great! It seemed seamless and ran good for me, but it definitely was not scratching my &ldquo;itch&rdquo; of trying Linux hands on. For those who may not know what a &ldquo;unix&rdquo; operating system is, and why developers prefer it, allow me to try to explain! Mac, Linux, and many other lesser known operating systems use &ldquo;unix&rdquo; as the basis of their environments. Unix is preferred by developers because developers spend a lot of time communication directly to the computer in the system&rsquo;s command line interface (CLI) using commands. If you didn&rsquo;t know, most of the &ldquo;internet&rdquo; meaning servers that run the services and applications we all rely on every day are ran on Linux. Therefore it&rsquo;s very beneficial for a developer to know and be comfortable with Linux as this will not only increase their knowledge about operating systems and unix based systems, but is a powerful tool if they need to work with the pipeline of an application that uses Linux.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbfe4810" class="outline-3">
+<h3 id="orgbfe4810">Why Fedora?</h3>
+<div class="outline-text-3" id="text-orgbfe4810">
+<p>
+I decided to try Fedora because it seemed like a great balance of stable and free. Typically, for those who don&rsquo;t explore technology or develop as a hobby, the go-to recommended Linux distribution is something like Linux Mint because of its similarity to Windows. Since I had been learning about and had a deep interest in Linux for a year in my free time, I decided to go for something that was a little more oriented towards developers. Fedora is a great Linux spin because it has a curated package repository, (meaning there is a selection of packages you can install and use for your system that are made sure to be stable and not break your system), an experimental repository (contains packages that are not curated) meant to be like their version of the &ldquo;AUR&rdquo; for Arch, and a great handful of &ldquo;spins&rdquo; to choose from. Fedora seems to be as simple or as complicated as you want it, with an out of the box experience that&rsquo;s ready to go on boot. You get a working system out of the box, but also can customize it much easier than other distros like Mint or Ubuntu .. etc.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org42a32d9" class="outline-2">
+<h2 id="org42a32d9">Why Thinkpad?</h2>
+<div class="outline-text-2" id="text-org42a32d9">
+<p>
+I picked a Thinkpad T480 because of its known compatibility with Linux, cost, peripheral options, and upgradability. Thinkpads have a cult following because of their iconic and sleek design of red and black. It&rsquo;s eye-catching in its own unassuming way and has a satisfying utilitarian aesthetic that looks professional. Thinkpads are known for being cheap since they are often decommissioned in large quantities by enterprises, refurbished, and sold for relatively cheap. For ~$200 I got a refurbished thinkpad with a great screen, modern peripheral inputs, webcam, track point (a benefit for me, but a controversial one ;)), and specs that will serve me well for a while. Speaking of specs, if I ever wanted to upgrade any of the parts on the machine, it&rsquo;s also known for its repair-friendly build.
+</p>
+</div>
+</div>
+<div id="outline-container-org7b95d61" class="outline-2">
+<h2 id="org7b95d61">Installing Fedora</h2>
+<div class="outline-text-2" id="text-org7b95d61">
+</div>
+<div id="outline-container-org66b3e03" class="outline-3">
+<h3 id="org66b3e03">Difficult? Exciting? Initial impressions</h3>
+<div class="outline-text-3" id="text-org66b3e03">
+<p>
+Installing Fedora was dead simple actually, easier than installing Windows! Fedora has a tool you can download from their website that allows you to set up a bootable USB with only a few clicks. After I created my bootable USB, after only about 5 questions I was installing Fedora! It was truly a delight to install.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org30cd3d7" class="outline-2">
+<h2 id="org30cd3d7">Installing neovim</h2>
+<div class="outline-text-2" id="text-org30cd3d7">
+</div>
+<div id="outline-container-orge882383" class="outline-3">
+<h3 id="orge882383">Why neovim?</h3>
+<div class="outline-text-3" id="text-orge882383">
+<p>
+I decided to learn neovim so I could become more familiar with VIM keybindings and rely less on my mouse for coding and navigation of my desktop. VIM Motions allow us to manipulate text quickly without the need to go back and forth from keyboard to mouse. It takes less time for the text on the screen to reflect what I&rsquo;m thinking in my brain. The faster my brain and the code and synced, the better for my work flow. It&rsquo;s also just a pretty nifty skill, and you become familiar with things like lisp and package managers if you use something like lazyvim.
+</p>
+</div>
+</div>
+<div id="outline-container-orgc2b8cf9" class="outline-3">
+<h3 id="orgc2b8cf9">Why lazy vim?</h3>
+<div class="outline-text-3" id="text-orgc2b8cf9">
+<p>
+I decided to go with lazyvim because it comes out of the box with many quality of life plugins. I could start with something less intimidating than setting up vim from scratch while I adjusted to not using VSCode. Lazyvim has a package manager and very extensive documentation that I could rely on, as well as a robust community. Lazyvim&rsquo;s configuration is also modular, so my set up files for it are separated by specific packages which makes editing it less intimidating than one large configuration file. The awesome thing about LazyVim&rsquo;s initial set up is that I can figure out which addons I really like, and possibly set up a vim setup from scratch in the future if I wanted a challenge.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc2dfbb3" class="outline-2">
+<h2 id="orgc2dfbb3">Conclusion</h2>
+<div class="outline-text-2" id="text-orgc2dfbb3">
+<p>
+I&rsquo;m really happy I took a chance on a refurbished laptop and installed Linux. It&rsquo;s really invigorated my passion for computers and programming. I even converted my iPod&rsquo;s library onto this machine and did a lot of tinkering with that. I&rsquo;ll probably talk about my iPod in an upcoming blog entry, because my iPod is something else I&rsquo;m very passionate about! After setting up my development environment on Linux, I think I understand why it&rsquo;s so preferred by developers.. it just <b>works</b> .. yes, it&rsquo;s really that simple. The excellent thing about Linux distributions is that you can pick your flavor for exactly your use-case. You can choose for your desktop environment to serve you. Other mainstream operating systems have to be a swiss army knife because of their market share. They innately <b>have</b> to serve <b>everyone</b>. Understandably, some folks may get frustrated with the dozens of applications installed on their machine they will never touch, or become frustrated with the gigabytes of storage they&rsquo;re forced to give up for functionalities they won&rsquo;t need. The issue is not with the idea itself of a generalized operating system, it&rsquo;s with the market and most folks feeling that Linux is not accessible to them. The reality is most people don&rsquo;t care, they just want something that plain works.. and due to Linux&rsquo;s small market share, they won&rsquo;t get that. For those of us who are curious enough to try out a Linux OS, perhaps we can continue to work towards this goal of making Linux more accessible and smooth for as many people as possible. I think the raspberry pi was an excellent step in the right direction for more mainstream Linux use, and hobbyist computing. It&rsquo;s very exciting to learn more about computers with my Thinkpad. :)
+</p>
+
+<p>
+Thanks for reading!
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: bel</p>
+<p class="date">Created: 2025-04-08 Tue 18:43</p>
+</div>
+</body>
+</html>

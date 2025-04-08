@@ -3,18 +3,24 @@ import "./App.css";
 import { Welcome } from "./Welcome";
 import NavbarComponent from "./Navbar";
 import BlogHome from "./Blog/BlogHome.jsx";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import BlogEntry from "./Blog/Entries/BlogEntry.jsx";
+import {
+  HashRouter,
+  Routes,
+  Route,
+  Link,
+  LinkContainer,
+} from "react-router-dom";
 
 function App() {
   return (
     <HashRouter>
-      <div className="App">
-        <NavbarComponent />
-        <Routes>
-          <Route path="/" element={<Welcome />}></Route>
-          <Route path="/blog" element={<BlogHome />}></Route>
-        </Routes>
-      </div>
+      <NavbarComponent />
+      <Routes>
+        <Route path="/blog" element={<BlogHome />} />
+        <Route path="/" element={<Welcome />} />
+        <Route path="/article/:id" element={<BlogEntry />} />
+      </Routes>
     </HashRouter>
   );
 }
