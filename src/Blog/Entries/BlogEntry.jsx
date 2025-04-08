@@ -12,7 +12,6 @@ const BlogEntry = () => {
       fetch(article.filePath)
         .then((response) => response.text())
         .then((html) => {
-          console.log(html);
           setContent(html);
         });
     }
@@ -23,7 +22,14 @@ const BlogEntry = () => {
   }
 
   return (
-    <div>
+    <div
+      style={{
+        marginBottom: "80px",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
       <h1>{article.name}</h1>
       <p>{article.date}</p>
       <div dangerouslySetInnerHTML={{ __html: content }} />
